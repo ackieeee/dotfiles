@@ -384,8 +384,15 @@ case ${1:v1} := <-${2:chan1}
 endsnippet
 
 # struct
-snippet st "type T struct { ... }"
+snippet tys "type T struct { ... }"
 type ${1:Type} struct {
+	${0}
+}
+endsnippet
+
+# interface
+snippet tyi "type T interface { ... }"
+type ${1:Type} interface {
 	${0}
 }
 endsnippet

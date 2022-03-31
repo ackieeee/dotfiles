@@ -17,6 +17,7 @@ set autoread
 set showcmd
 
 set splitbelow
+set splitright
 
 set expandtab
 set tabstop=4
@@ -150,7 +151,7 @@ set termguicolors     " enable true colors support
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+colorscheme molokai
 
 "-----ale-----
 let g:ale_statusline_format = ['E%d', 'W%d', 'OK']
@@ -163,8 +164,8 @@ let g:ale_javascript_prettier_use_local_config = 1
 inoremap <silent> jj <ESC>
 
 " インデント可視化
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+" set list
+" set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 " YouCompleteMe設定
 " let g:ycm_global_ycm_extra_conf = '${HOME}/.ycm_extra_conf.py'
@@ -326,3 +327,11 @@ map <silent> [Tag]n :tabnext<CR>
 " tn 次のタブ
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
+
+" terminal設定
+if has('nvim')
+  command! -nargs=* Terms split | terminal <args>
+  command! -nargs=* Termv vsplit | terminal <args>
+  tnoremap <ESC> <C-\><C-n>
+endif
+
